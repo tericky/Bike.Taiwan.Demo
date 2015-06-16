@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta property="og:title" content="GIS中心2015日本旅遊行程"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://tericky.github.io/japan2015/"/>
+    <meta property="og:image" content="http://www.alpen-route.com/en/images/0_AD1_P02-080512-05(_DSC22191).jpg"/>
+    <meta property="og:site_name" content="GIS中心2015日本旅遊行程"/>
+    <meta property="og:description" content="被立山連峰所環繞著的黑部峽谷，是日本最大的峽谷，由於氣侯多雨雪及地勢險峻等自然條件，使得大自然的狀態被完好保存著，其生態近乎原始。因此黑部河水豐富且落差極大，是興建水利發電站最佳之處而倍受注目。1956年關西電力廣泛運用科學、知識、與經驗，歷時7年，工程耗資513億日元，動用1000萬人的勞力，於1963年建成黑部大壩，被稱為【世紀工程】絕不為過。黑部水壩除了提供日常生活所需之能源外，同時維持周遭之自然景觀，環境並保護自然是人類追求與自然共存的新指標。黑部源流與日本阿爾卑斯山雄偉的大自然融合，創造出美麗的景觀。"/>
+
+    <!--[if lt IE 9]-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!--[endif]-->
+    <!--[if gte IE 9 | !IE]-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <!--[endif]-->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/main.js?000005"></script>
+	  <script type="text/javascript" src="js/geo.js?000004"></script>
+	
+    <script type="text/javascript" src="js/metisMenu.min.js"></script>    
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/metisMenu.min.css">
+    <link rel="stylesheet" href="css/sb-admin-2.css">
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD70SJ1TLxx26DmIeKKOkjpz142O_YoKEg&sensor=false&signed_in=true&libraries=weather,places"></script>
+
+    <style>
+      html, body,#page-wrapper, #map-canvas,#wrapper {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #page-wrapper {
+      	min-height: 320px;
+      }
+
+      .icon-pull-right {
+        line-height: 40px;
+      }
+
+      .StreetView {
+        min-width : 400px;
+        min-height : 300px;
+      }
+
+    </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div class="navbar-default sidebar" role="navigation">
+      <div class="sidebar-nav navbar-collapse">
+        <!-- Sidebar -->
+        <ul class="nav" id="side-menu">
+          <!-- 第一天 -->
+          <li>
+            <a href="#"><i class="fa fa-calendar fa-fw"></i> 第一天 5/15(五)<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              
+              <li>
+                <a href="#" class="hotel">
+                  <i class="fa fa-bed fa-fw"></i> 飯店&nbsp;&nbsp;<span class="badge">2</span>
+                  <button id="btnHotelDay1" show-data="false" class="btn btn-outline btn-primary btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="route">
+                  <i class="fa fa-bus fa-fw"></i> 路線&nbsp;&nbsp;<span class="badge">1</span>
+                  <button id="btnRouteDay1" show-data="false" class="btn btn-outline btn-primary btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="meals" id="aMealsDay1">
+                  <i class="fa fa-cutlery fa-fw"></i> 三餐&nbsp;&nbsp;
+                </a>
+              </li>
+  
+            </ul>
+          </li>
+          <!-- 第二天 -->
+          <li>
+            <a href="#"><i class="fa fa-calendar fa-fw"></i> 第二天 5/16(六)<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+
+              <li>
+                <a href="#" class="hotel">
+                  <i class="fa fa-bed fa-fw"></i> 飯店&nbsp;&nbsp;<span class="badge">2</span>
+                  <button id="btnHotelDay2" show-data="false" class="btn btn-outline btn-danger btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="spot">
+                  <i class="fa fa-university fa-fw"></i> 景點&nbsp;&nbsp;<span class="badge">4</span>
+                  <button id="btnSpotDay2" show-data="false" class="btn btn-outline btn-danger btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="route">
+                  <i class="fa fa-bus fa-fw"></i> 路線&nbsp;&nbsp;<span class="badge">4</span>
+                  <button id="btnRouteDay2" show-data="false" class="btn btn-outline btn-danger btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="meals" id="aMealsDay2">
+                  <i class="fa fa-cutlery fa-fw"></i> 三餐&nbsp;&nbsp;
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <!-- 第三天 -->
+          <li>
+            <a href="#"><i class="fa fa-calendar fa-fw"></i> 第三天 5/17(日)<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+
+              <li>
+                <a href="#" class="hotel">
+                  <i class="fa fa-bed fa-fw"></i>飯店&nbsp;&nbsp;<span class="badge">1</span>
+                  <button id="btnHotelDay3" show-data="false" class="btn btn-outline btn-success btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="spot">
+                  <i class="fa fa-university fa-fw"></i>景點&nbsp;&nbsp;<span class="badge">9</span>
+                  <button id="btnSpotDay3" show-data="false" class="btn btn-outline btn-success btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="route">
+                  <i class="fa fa-bus fa-fw"></i> 路線
+                  <button id="btnRouteDay3" show-data="false" class="btn btn-outline btn-success btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="meals" id="aMealsDay3">
+                  <i class="fa fa-cutlery fa-fw"></i> 三餐&nbsp;&nbsp;
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <!-- 第四天 -->
+          <li>
+            <a href="#"><i class="fa fa-calendar fa-fw"></i> 第四天 5/18(一)<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              
+              <li>
+                <a href="#" class="hotel">
+                  <i class="fa fa-bed fa-fw"></i>飯店&nbsp;&nbsp;<span class="badge">2</span>
+                  <button id="btnHotelDay4" show-data="false" class="btn btn-outline btn-warning btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="spot">
+                  <i class="fa fa-university fa-fw"></i>景點&nbsp;&nbsp;<span class="badge">3</span>
+                  <button id="btnSpotDay4" show-data="false" class="btn btn-outline btn-warning btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="route">
+                  <i class="fa fa-bus fa-fw"></i>路線&nbsp;&nbsp;<span class="badge">4</span>
+                  <button id="btnRouteDay4" show-data="false" class="btn btn-outline btn-warning btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="meals" id="aMealsDay4">
+                  <i class="fa fa-cutlery fa-fw"></i> 三餐&nbsp;&nbsp;
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <!-- 第五天 -->
+          <li>
+            <a href="#"><i class="fa fa-calendar fa-fw"></i> 第五天 5/19(二)<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+
+              <li>
+                <a href="#" class="spot">
+                  <i class="fa fa-university fa-fw"></i>景點&nbsp;&nbsp;<span class="badge">3</span>
+                  <button id="btnSpotDay5" show-data="false" class="btn btn-outline btn-info btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="route">
+                  <i class="fa fa-bus fa-fw"></i>路線&nbsp;&nbsp;<span class="badge">4</span>
+                  <button id="btnRouteDay5" show-data="false" class="btn btn-outline btn-info btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="meals" id="aMealsDay5">
+                  <i class="fa fa-cutlery fa-fw"></i> 三餐&nbsp;&nbsp;
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <!-- 班機 -->
+          <li>
+            <a href="#"><i class="fa fa-clock-o fa-fw"></i> 機場<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+
+              <li>
+                <a href="#" class="fly">
+                  <i class="fa fa-plane fa-fw"></i>桃　園
+                  <button id="btnSpotFlyTY" show-data="false" class="btn btn-outline btn-default btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+              <li>
+                <a href="#" class="fly">
+                  <i class="fa fa-plane fa-fw"></i>名古屋
+                  <button id="btnSpotFlyNY" show-data="false" class="btn btn-outline btn-default btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+          <!-- 店 -->
+          <li>
+            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> 店<span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+              <li>
+                <a href="#"><i class="fa fa-jpy fa-fw"></i> 購物<span class="fa arrow"></span></a>
+                <ul class="nav nav-third-level">
+                  <li>
+                    <a href="#" class="store">
+                      <i class="fa fa-jpy fa-fw"></i>BIC CAMERA
+                      <button id="btnSpotBicCamera" show-data="false" class="btn btn-outline btn-default btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="store">
+                      <i class="fa fa-jpy fa-fw"></i>激安の殿堂
+                      <button id="btnSpotDonki" show-data="false" class="btn btn-outline btn-default btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="store">
+                      <i class="fa fa-jpy fa-fw"></i>Oasis 21
+                      <button id="btnSpotOasis21" show-data="false" class="btn btn-outline btn-default btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="store">
+                      <i class="fa fa-jpy fa-fw"></i>Apple Store
+                      <button id="btnSpotApple" show-data="false" class="btn btn-outline btn-default btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="store">
+                      <i class="fa fa-jpy fa-fw"></i>松本清
+                      <button id="btnSpotMatsukiyo" show-data="false" class="btn btn-outline btn-default btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" class="store">
+                      <i class="fa fa-jpy fa-fw"></i>ZERO GATE
+                      <button id="btnSpotZeroGate" show-data="false" class="btn btn-outline btn-default btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav nav-second-level">
+              <li>
+                <a href="#"><i class="fa fa-cutlery fa-fw"></i> 食堂<span class="fa arrow"></span></a>
+                <ul class="nav nav-third-level">
+
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- #sidebar-wrapper -->
+      </div>
+      <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+    
+    <!-- Page Content -->
+    <div id="page-wrapper">
+      <div id="map-canvas"></div>
+    </div>
+  </div>
+
+  
+
+  <script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', mapInitialize);
+  </script>
+</body>
+</html>
