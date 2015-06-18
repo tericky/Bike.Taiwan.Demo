@@ -1,115 +1,17 @@
 // Google map
 var __map;
-// Weather
-var __weather;
 // Current Position
 var _currentPosition;
 
-//// -------------------- 第一天-------------------- ////
-//// 飯店
-var _markerDay1NagoyaInter;                // 名古屋國際
-var _markerDay1NagoyaKanko;                // 名古屋觀光
-
-//// 路線
-var _polylineAirPlaneToHotel;              // 機場到飯店
-//// -------------------- 第一天-------------------- ////
-
-
-//// -------------------- 第二天-------------------- ////
-//// 飯店
-var _markerDay2HakubaAlps;                 // 白馬阿爾卑斯山酒店
-var _markerDay2TsugaikeKohgen;             // 白馬姆池飯店
-
-//// 景點
-var _markerDay2TaxFree;                    // （有）光伸真珠 名古屋支店
-var _markerDay2Tsumagojuku;                // 妻籠宿
-var _markerDay2Magomejuku;                 // 馬龍宿
-var _markerDay2Matsumoto;                  // 松本市美術館
-
-//// 路線
-var _polylineNagoyaInterToTaxFree;         // [名古屋国際ホテル] 到 [（有）光伸真珠 名古屋支店]
-var _polylineTaxFreeToTsumagojuku;         // [（有）光伸真珠 名古屋支店] 到 [妻籠宿]
-var _polylineMagomejukuToMatsumoto;        // [馬龍宿] 到 [松本市美術館]
-var _polylineMatsumotoToHakubaAlps;        // [松本市美術館] 到 [白馬阿爾卑斯山酒店]
-//// -------------------- 第二天-------------------- ////
-
-//// -------------------- 第三天-------------------- ////
-//// 飯店
-var _markerDay3HotelIshikawa;              // HOTEL MYSTAYS 金澤
-
-//// 景點
-var _markerDay3Tateyama;                   // 立山ケーブルカー
-var _markerDay3Bijodaira;                  // 美女平駅
-var _markerDay3Murodo;                     // 室堂駅
-var _markerDay3Daikanbo;                   // 大観峰駅
-var _markerDay3Kurobedaira;                // 黒部平駅
-var _markerDay3Kurobeko;                   // 黒部湖駅
-var _markerDay3Kurobedamu;                 // 黒部ダム
-var _markerDay3KurobedamuStation;          // 黒部ダム駅
-var _markerDay3Ogizawa;                    // 扇沢駅
-
-//// 路線
-var _polylineTateyamaToBijodaira;          // [立山ケーブルカー] 到 [美女平駅]
-var _polylineBijodairaToMurodo;            // [美女平駅] 到 [室堂駅]
-var _polylineMurodoToDaikanbo;             // [室堂駅] 到 [大観峰駅]
-var _polylineDaikanboToKurobedaira;        // [大観峰駅] 到 [黒部平駅]
-var _polylineKurobedairaToKurobeko;        // [黒部平駅] 到 [黒部湖駅]
-var _polylineKurobekoToKurobedamu;         // [黒部湖駅] 到 [黒部ダム]
-var _polylineKurobedamuStationToOgizawa;   // [黒部ダム駅] 到 [扇澤駅]
-    
-//// -------------------- 第三天-------------------- ////
-
-//// -------------------- 第四天-------------------- ////
-//// 飯店
-var _markerDay4TakayamaGreenHotel;         // 高山GREEN
-var _markerDay4AssociaTakayamaResort;      // 高山ASSOCIA
-
-//// 景點
-var _markerDay4Kenrokuen;                  // 兼六園
-var _markerDay4Higashi;                    // ひがし茶屋街
-var _markerDay4Gasshou;                    // 合掌村
-
-//// 路線
-var _polylineHotelIshikawaToKenrokuen;     // [HOTEL MYSTAYS 金澤] 到 [兼六園]
-var _polylineKenrokuenToHigashi;           // [兼六園] 到 [ひがし茶屋街]
-var _polylineHigashiToGasshou;             // [ひがし茶屋街] 到 [白川郷·五箇山の合掌造り集落]
-var _polylineGasshouToTakayamaGreenHotel;  // [白川郷·五箇山の合掌造り集落] 到 [高山グリーンホテル]
-//// -------------------- 第四天-------------------- ////
-
-//// -------------------- 第五天-------------------- ////
-//// 景點
-var _markerDay5Market;                     // 宮川朝市
-var _markerDay5Stree;                      // 上三之町
-var _markerDay5Mino;                       // 美濃古街
-// var _markerDay5Enakyo;                     // 惠那峽
-
-//// 路線
-var _polylineTakayamaGreenHotelToMarket;   // [高山グリーンホテル] 到 [宮川朝市]
-var _polylineMarketToStree;                // [宮川朝市] 到 [上三之町]
-// var _polylineStreeToAirPlane;           // [上三之町] 到 [機場]
-var _polylineStreeToMino;                  // [上三之町] 到 [美濃古街]
-// var _polylineStreeToEnakyo;             // [上三之町] 到 [惠那峽]
-var _polylineMinoToAirPlane;               // [美濃古街] 到 [機場]
-// var _polylineEnakyoToAirPlane;          // [惠那峽] 到 [機場]
-//// -------------------- 第五天-------------------- ////
-
-//// -------------------- 機場---------------------- ////
-var _markerFlyTY;                          // 桃  園
-var _markerFlyNY;                          // 名古屋
-//// -------------------- 機場---------------------- ////
-
-//// -------------------- 店 ----------------------- ////
-var _markerBicCamera;                      // BIC CAMERA
-var _markerDonki;                          // 激安の殿堂
-var _markerOasis21;                        // 宇宙船綠洲21(Oasis 21)
-var _markerAppleStore;                     // Apple Store
-var _markerMatsukiyo;                      // 松本清
-var _markerZeroGate;                       // ZERO GATE
-//// -------------------- 店 ----------------------- ////
-
-
+var ctaLayer;
 
 $(function() {
+    makeMenu({Id:1,Name:'test',Route:[],Spot:[]});
+    makeMenu({Id:2,Name:'test2',Route:[],Spot:[]});
+    makeMenu({Id:3,Name:'test3',Route:[],Spot:[]});
+    makeMenu({Id:4,Name:'test4',Route:[],Spot:[]});
+
+
     $('#side-menu').metisMenu();
     $('div.navbar-collapse').addClass('collapse');
 
@@ -449,8 +351,7 @@ function loadGoogleMapScript() {
 function mapInitialize() {
     var mapOptions = {
         zoom: 8,
-        // 北陸中部
-        center: new google.maps.LatLng(35.982663, 137.280964),
+        center: new google.maps.LatLng(23.955746, 120.975594),
         streetViewControl: true,
         zoomControl: true,
         scaleControl: true,
@@ -463,11 +364,6 @@ function mapInitialize() {
 
     __map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    __weather = new google.maps.weather.WeatherLayer({
-        map: null,
-        temperatureUnits: google.maps.weather.TemperatureUnit.CELSIUS,
-        windSpeedUnits: google.maps.weather.WindSpeedUnit.METERS_PER_SECOND
-      });
 
     var menuCollapse = document.createElement('button');
     $(menuCollapse).attr('alt', '顯示/隱藏 選單')
@@ -495,21 +391,6 @@ function mapInitialize() {
     mailLink.index = 2;
     __map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(mailLink);
 
-/*
-    var weatherBtn = document.createElement('button');
-    $(weatherBtn).attr('alt', '顯示/隱藏 天氣資訊')
-                 .attr('title', '顯示/隱藏 天氣資訊')
-                 .attr('data-toggle', 'tooltip')
-                 .attr('data-placement', 'left')
-                 .addClass('btn btn-warning btn-circle btn-lg')
-                 .append($('<i class="fa fa-umbrella">'))
-                 .on('click', function() {
-                     __weather.setMap(__weather.getMap() === null ? __map : null);
-                 })
-                 .tooltip();
-    weatherBtn.index = 3;
-    __map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(weatherBtn);
-*/
     var currentLocationBtn = document.createElement('button');
     $(currentLocationBtn).attr('alt', '顯示/隱藏 天氣資訊')
                  .attr('title', '顯示/隱藏 天氣資訊')
@@ -544,6 +425,14 @@ function mapInitialize() {
     currentLocationBtn.index = 4;
     __map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(currentLocationBtn);
 
+
+    ctaLayer = new google.maps.KmlLayer({
+        url: 'http://127.0.0.1/Bike.Taiwan/data/1.kml',
+        map: __map
+    });
+
+
+/*
     initailMarkerDay1();
     initailMarkerDay2();
     initailMarkerDay3();
@@ -551,7 +440,7 @@ function mapInitialize() {
     initailMarkerDay5();
     initialMarkerAirPlane();
     initialStores();
-    initialMeals();
+    initialMeals();*/
 }
 
 function handleNoGeolocation(errorFlag) {
@@ -562,6 +451,28 @@ function handleNoGeolocation(errorFlag) {
     }
 }
 
+function makeMenu(routeObj) {
+    var html = '<li>';
+        html += '<a href="#"><i class="fa fa-calendar fa-fw"></i> ' + routeObj.Name + '<span class="fa arrow"></span></a>';
+        html += '<ul class="nav nav-second-level">';
+
+        html += '<li>';
+        html += '<a href="#" class="spot">'
+        html += '<i class="fa fa-university fa-fw"></i> 景點&nbsp;&nbsp;<span class="badge">' + routeObj.Spot.length + '</span>';
+        html += '<button id="btnSpot' + routeObj.Id + '" class="btn btn-outline btn-danger btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>';
+        html += '</a>';
+        html += '</li>';
+
+
+        html += '<li>';
+        html += '<a href="#" class="route">';
+        html += '<i class="fa fa-bus fa-fw"></i> 路線&nbsp;&nbsp;<span class="badge">' + routeObj.Route.length + '</span>';
+        html += '<button id="btnRoute' + routeObj.Id + '" class="btn btn-outline btn-danger btn-circle pull-right" type="button"><i class="fa fa-square-o"></i></button>';
+        html += '</a>';
+        html += '</li>';
+
+    $('#side-menu').append(html);
+}
 
 function makeInfoWindowContent(opt) {
     if( opt === null || opt === undefined ) {
