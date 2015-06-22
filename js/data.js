@@ -8,56 +8,56 @@ var routeDatas =
 		[
 			 {
 		        mid: 'marker1_1',
-		        LatLng : [24.078512,120.543553],
+		        LatLng : [24.078412,120.543455],
 		        iconColor : 'blue-dot',
 		        title: '彰化孔子廟',
 		        infoContent : { Class: 'primary', Header:'彰化孔子廟', Body:'<div class="StreetView" />', Footer : '500台灣彰化縣彰化市孔門路30號'}
 		    },
 			{
 		        mid: 'marker1_2',
-		        LatLng : [24.081372,120.540162],
+		        LatLng : [24.078595,120.549047],
 		        iconColor : 'blue-dot',
 		        title: '八卦山大佛風景區',
 		        infoContent : { Class: 'primary', Header:'八卦山大佛風景區', Body:'<div class="StreetView" />', Footer : '500台灣彰化縣彰化市溫泉路31號'}
 		    },
 			{
 		        mid: 'marker1_3',
-		        LatLng : [23.830884,120.475682],
+		        LatLng : [23.842222,120.495834],
 		        iconColor : 'blue-dot',
 		        title: '溪州花博公園',
 		        infoContent : { Class: 'primary', Header:'溪州花博公園', Body:'<div class="StreetView" />', Footer : '台灣彰化縣溪州鄉'}
 		    },
 			{
 		        mid: 'marker1_4',
-		        LatLng : [23.8506537,120.9167357],
+		        LatLng : [23.86419,120.911649],
 		        iconColor : 'blue-dot',
 		        title: '日月潭',
 		        infoContent : { Class: 'primary', Header:'日月潭', Body:'<div class="StreetView" />', Footer : '555中華民國南投縣魚池鄉'}
 		    },
 			{
 		        mid: 'marker1_5',
-		        LatLng : [23.868565,120.95908],
+		        LatLng : [23.869059,120.947411],
 		        iconColor : 'blue-dot',
 		        title: '九族文化村',
 		        infoContent : { Class: 'primary', Header:'九族文化村', Body:'<div class="StreetView" />', Footer : '555台灣南投縣魚池鄉金天巷45號'}
 		    },
 			{
 		        mid: 'marker1_6',
-		        LatLng : [23.960679,120.974701],
+		        LatLng : [23.951236,120.931063],
 		        iconColor : 'blue-dot',
 		        title: '國立暨南國際大學',
 		        infoContent : { Class: 'primary', Header:'國立暨南國際大學', Body:'<div class="StreetView" />', Footer : '台灣南投縣埔里鎮大學路1號'}
 		    },
 			{
 		        mid: 'marker1_7',
-		        LatLng : [23.960679,120.974701],
+		        LatLng : [23.968,120.960684],
 		        iconColor : 'blue-dot',
 		        title: '埔里酒廠',
 		        infoContent : { Class: 'primary', Header:'埔里酒廠', Body:'<div class="StreetView" />', Footer : '545台灣南投縣埔里鎮中山路三段219號'}
 		    },
 			{
 		        mid: 'marker1_8',
-		        LatLng : [23.994401,120.724419],
+		        LatLng : [23.987901,120.686917],
 		        iconColor : 'blue-dot',
 		        title: '寶島時代村',
 		        infoContent : { Class: 'primary', Header:'寶島時代村', Body:'<div class="StreetView" />', Footer : '542台灣南投縣草屯鎮中正路1039號'}
